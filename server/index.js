@@ -27,18 +27,18 @@ app.get('/files/data', async (req, res) => {
         };
         result.push(formattedData);
       } catch (err) {
-        console.error(`Error al obtener o procesar archivo ${file}`, err);
+        console.error(`Error getting or processing file ${file}`, err);
       }
     }
     res.status(200).json(result);
   } catch (err) {
-    console.error('Error al obtener la lista de archivos', err);
-    res.status(500).send('Hubo un error al procesar la solicitud');
+    console.error('Error getting list of files', err);
+    res.status(500).send('There was an error processing the request');
   }
 });
 
 app.listen(port, () => {
-  console.log(`Servidor escuchando en http://localhost:${port}`);
+  console.log(`Server listening on http://localhost:${port}`);
 });
 
 module.exports = app;
